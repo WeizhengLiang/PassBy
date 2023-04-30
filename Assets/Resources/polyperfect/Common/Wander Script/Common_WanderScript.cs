@@ -565,6 +565,7 @@ namespace Polyperfect.Common
         public void TakeDamage(float damage)
         {
             toughness -= damage;
+            isDamaged = true;
             if (toughness <= 0f)
                 Die();
         }

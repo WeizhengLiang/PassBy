@@ -129,9 +129,19 @@ public class PlayerLocomotionController : MonoBehaviour
             
         }
         
+        //Saves a screenshot when a button is pressed
+
+
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            ScreenCapture.CaptureScreenshot("screenshot.png");
+            Debug.Log("A screenshot was taken!");
+        }
         
-        _animator.SetFloat("VelocityX", velocity.x);
-        _animator.SetFloat("VelocityY", Mathf.Abs(velocity.y));
+        
+        
+        // _animator.SetFloat("VelocityX", velocity.x);
+        // _animator.SetFloat("VelocityY", Mathf.Abs(velocity.y));
 
     }
 
@@ -168,6 +178,8 @@ public class PlayerLocomotionController : MonoBehaviour
     {
         _animator.SetBool("isDead", true);
         playerInput.DeactivateInput();
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         restartUI.SetActive(true);
     }
 
